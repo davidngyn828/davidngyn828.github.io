@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# David Nguyen — Portfolio
 
-## Getting Started
+Senior Full Stack AI Engineer portfolio built with **Next.js** (static export) for free hosting on **GitHub Pages**.
 
-First, run the development server:
+Live URL once deployed: `https://davidngyn828.github.io`
+
+## Local development
 
 ```bash
+cd portfolio
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Edit your content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All profile copy lives in one file:
 
-## Learn More
+[`src/data/site.ts`](src/data/site.ts)
 
-To learn more about Next.js, take a look at the following resources:
+Update:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Experience (replace the 3 mock companies)
+- Projects (title, description, URL, optional `image`)
+- Skills, summary, contact links
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Project images
 
-## Deploy on Vercel
+1. Put files in `public/projects/` (e.g. `public/projects/retailgo.jpg`)
+2. Set `image: "/projects/retailgo.jpg"` on that project in `site.ts`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy to GitHub Pages (free)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Important: repo name
+
+Your GitHub username is `davidngyn828`, so the repo **must** be named:
+
+```text
+davidngyn828.github.io
+```
+
+That gives you: https://davidngyn828.github.io
+
+Do **not** use `davidngyn.github.io` — that name only works if the username is `davidngyn`.
+
+### Steps
+
+1. Create (or rename) the repo to exactly: `davidngyn828.github.io`
+2. Push this project to that repo’s `main` branch
+3. In the repo: **Settings → Pages → Build and deployment → Source → GitHub Actions**
+4. Push (or re-run the workflow). Site will be at:
+   - https://davidngyn828.github.io
+
+```bash
+cd portfolio
+git remote add origin https://github.com/davidngyn828/davidngyn828.github.io.git
+git branch -M main
+git push -u origin main
+```
+
+### Option B — project URL
+
+If the repo is named `portfolio`, the site will be:
+
+- https://davidngyn828.github.io/portfolio
+
+Then set `BASE_PATH: /portfolio` in `.github/workflows/deploy.yml` before deploying.
+
+## Build check
+
+```bash
+npm run build
+```
+
+Static files are written to `out/`.
